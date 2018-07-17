@@ -1,2 +1,6 @@
 # Kingfisher-Texture
-Custom downloaderProtocol and cacheProtocol by  Kingfisher to replace ASNetworkImageNode 
+Custom ASImageDownloaderProtocol and ASImageCacheProtocol by Kingfisher to replace ASNetworkImageNode
+
+## How To Use
+
+Use  ```ASNetworkImageNode.imageNode() ``` to replace  ```ASNetworkImageNode() ```
