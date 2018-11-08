@@ -11,6 +11,7 @@ import Kingfisher
 
 extension ASNetworkImageNode {
     static func imageNode() -> ASNetworkImageNode {
+        ImageDownloader.default.downloadTimeout = 30.0
         return ASNetworkImageNode(cache: ASImageManager.shared, downloader: ASImageManager.shared)
     }
 }
@@ -23,7 +24,6 @@ class ASImageManager: NSObject, ASImageDownloaderProtocol, ASImageCacheProtocol 
     
     func downloadImage(with URL: URL, callbackQueue: DispatchQueue, downloadProgress: ASImageDownloaderProgress?, completion: @escaping ASImageDownloaderCompletion) -> Any? {
         
-        ImageDownloader.default.downloadTimeout = 30.0
         var operation: RetrieveImageDownloadTask?
         operation = ImageDownloader.default.downloadImage(with: URL, progressBlock: { (received, expected) in
             if downloadProgress != nil {
