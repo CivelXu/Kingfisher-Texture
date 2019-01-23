@@ -57,5 +57,13 @@ class ASImageManager: NSObject, ASImageDownloaderProtocol, ASImageCacheProtocol 
         }
     }
     
-
+    func clearFetchedImageFromCache(with URL: URL) {
+        // clear FetchedImage From Memory Cache
+        ImageCache.default.removeImage(forKey: URL.cacheKey,
+                                       fromMemory: true,
+                                       fromDisk: false) {
+            
+        }
+    }
+    
 }
